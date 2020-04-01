@@ -26,9 +26,11 @@ public class AccountService {
     System.out.println("Please log in. Provide username:");
 //    String usernameInput = sc.nextLine();
     String usernameInput = sc.next();
+    //sc.nextLine();
     System.out.println("Provide password");
 //    String passwordInput = sc.nextLine();   //get login credentials
     String passwordInput = sc.next();
+    //sc.nextLine();
     System.out.println("");                                          //pass in the login credentials as an account object to the bank dao
     return bankDAO.login(new Account(usernameInput, passwordInput)); //this will return true if login was successful and false if login was not successful.
 

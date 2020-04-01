@@ -21,7 +21,7 @@ public class BankDao implements AccountDaoContract {
         PreparedStatement ps = conn.prepareStatement(sql);
         ps.setString(1, acc.getUsername());
         ps.setString(2, acc.getPassword());
-        ps.setDouble(3, acc.getBalance());
+        ps.setDouble(3, 0);
         ps.execute();
         return true;
       } catch (SQLException e) {

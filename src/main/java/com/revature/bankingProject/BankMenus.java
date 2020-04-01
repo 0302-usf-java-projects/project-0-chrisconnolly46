@@ -31,16 +31,19 @@ public class BankMenus {
 
 //    while(sc.hasNext()) {
       int input = sc.nextInt();
+      sc.nextLine();
 
     switch (input) {
 
       case 1:
         createAccount();
         System.out.println("");
-        return 1;
+        runWelcomeMenu();
 
       case 2:
-
+        acc.setUsername(null);
+        acc.setPassword(null);
+        acc.setLoggedIn(false);
         if (accServ.login()) {
           
           if(acc.getUsername().equals("username") && acc.getPassword().equals("password")) {
@@ -57,7 +60,7 @@ public class BankMenus {
         else {
           System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
           System.out.println("Something went wrong, you were not logged in. Please try again.");
-          return 1;
+          runWelcomeMenu();
         }
     
         return 1;
@@ -96,6 +99,10 @@ public class BankMenus {
 
       case 2: 
         System.out.println("Returning you to the main menu.");
+        acc.setLoggedIn(false);
+        acc.setUsername(null);
+        acc.setPassword(null);
+        acc.setBalance(0);
         runWelcomeMenu();
         
       case 3:
