@@ -11,16 +11,12 @@ public class AccountService {
     try {
       if (!bankDAO.addAccount(acc)) {   //if the account creation was not successful
         throw new MultipleUsernameException();      //throw multiple username exception
-      } else if (acc.getPassword().length() < 8) {  //if not multiple usernames, then it must be the password is too short
-        throw new InvalidPasswordException();
       } else {          //if account creation was actually successful
         return true;
         }
         } catch (MultipleUsernameException e) {
           System.out.println("Username is already taken. Please try another username"); //gets printed out if the username exists in the database
-        } catch (InvalidPasswordException e) {
-          System.out.println("\nYour password sucks. Make it longer."); //gets printed out if the password wasn't long enough
-        }
+        } 
     return false;   //returns false if account creation was not successful
   }
   
